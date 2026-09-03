@@ -6,7 +6,6 @@ import { AppIcon } from '../src/components/UI';
 
 export default function IndexScreen() {
   const { user, token } = useAuthStore();
-
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!token || !user) {
