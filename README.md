@@ -49,6 +49,7 @@ npx expo-doctor
 npx expo start --lan
 ```
 
+
 Scan the QR code with Expo Go. The phone and computer must use the same Wi-Fi network.
 
 For a physical device, the app discovers the computer's Expo LAN address automatically. To set the API address manually:
