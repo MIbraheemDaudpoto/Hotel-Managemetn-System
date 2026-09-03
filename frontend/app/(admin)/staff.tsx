@@ -4,7 +4,7 @@ import {
   Modal, ActivityIndicator, Alert, SafeAreaView, Platform
 } from 'react-native';
 import { useHotelStore } from '../../src/store/hotelStore';
-import { IOSButton } from '../../src/components/UI';
+import { AppIcon, IOSButton } from '../../src/components/UI';
 
 export default function StaffManagementScreen() {
   const { staffList, fetchStaffList, createStaff, toggleStaffActive } = useHotelStore();
@@ -110,7 +110,7 @@ export default function StaffManagementScreen() {
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>Provision Staff Account</Text>
               <TouchableOpacity onPress={() => setModalVisible(false)}>
-                <Text style={styles.closeBtn}>✕</Text>
+                <AppIcon name="close" size={20} color="#94A3B8" />
               </TouchableOpacity>
             </View>
 

@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import { useHotelStore } from '../../src/store/hotelStore';
 import { Room, RoomStatus } from '../../src/types';
-import { StatusBadge } from '../../src/components/UI';
+import { AppIcon, StatusBadge } from '../../src/components/UI';
 
 export default function RoomGridScreen() {
   const { operations, fetchOperations, isLoadingOperations, updateRoomStatus } = useHotelStore();
@@ -55,7 +55,7 @@ export default function RoomGridScreen() {
           <Text style={styles.title}>Live Room Status Grid</Text>
         </View>
         <TouchableOpacity style={styles.refreshBtn} onPress={fetchOperations}>
-          <Text style={styles.refreshText}>🔄</Text>
+          <AppIcon name="refresh" size={18} color="#0284C7" />
         </TouchableOpacity>
       </View>
 
@@ -116,7 +116,7 @@ export default function RoomGridScreen() {
               </View>
 
               <Text style={styles.gridType}>{item.room_type}</Text>
-              <Text style={styles.gridCap}>👥 {item.capacity} guests • ${item.price_per_night}/n</Text>
+              <Text style={styles.gridCap}>{item.capacity} guests • ${item.price_per_night}/n</Text>
 
               <View style={styles.tapAction}>
                 <Text style={styles.tapActionText}>Tap to change status →</Text>
@@ -132,7 +132,7 @@ export default function RoomGridScreen() {
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>Change Room Status</Text>
               <TouchableOpacity onPress={() => setModalVisible(false)}>
-                <Text style={styles.closeBtn}>✕</Text>
+                <AppIcon name="close" size={20} color="#94A3B8" />
               </TouchableOpacity>
             </View>
 

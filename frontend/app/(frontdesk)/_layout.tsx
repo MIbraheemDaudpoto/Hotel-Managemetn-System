@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Text } from 'react-native';
+import { AppIcon } from '../../src/components/UI';
 
 export default function FrontDeskLayout() {
   return (
@@ -26,28 +26,28 @@ export default function FrontDeskLayout() {
         name="grid"
         options={{
           title: 'Room Grid',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>🔲</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="grid" color={color} />,
         }}
       />
       <Tabs.Screen
         name="operations"
         options={{
           title: 'Daily Flow',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>🛎️</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="headset" color={color} />,
         }}
       />
       <Tabs.Screen
         name="reports"
         options={{
           title: 'Reports & Logs',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>📋</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="clipboard" color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Staff',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>👤</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="user" color={color} />,
         }}
       />
     </Tabs>

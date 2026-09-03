@@ -4,7 +4,7 @@ import {
   ActivityIndicator, SafeAreaView, Platform
 } from 'react-native';
 import { useHotelStore } from '../../src/store/hotelStore';
-import { KPICard } from '../../src/components/UI';
+import { AppIcon, KPICard } from '../../src/components/UI';
 
 export default function AdminDashboardScreen() {
   const { kpis, fetchDashboardKPIs, isLoadingAdmin } = useHotelStore();
@@ -23,7 +23,7 @@ export default function AdminDashboardScreen() {
           <Text style={styles.title}>Property KPI Dashboard</Text>
         </View>
         <TouchableOpacity style={styles.refreshBtn} onPress={fetchDashboardKPIs}>
-          <Text style={styles.refreshText}>🔄</Text>
+          <AppIcon name="refresh" size={18} color="#7C3AED" />
         </TouchableOpacity>
       </View>
 
@@ -42,7 +42,7 @@ export default function AdminDashboardScreen() {
               </Text>
             </View>
             <View style={styles.occupancyCircle}>
-              <Text style={{ fontSize: 32 }}>📈</Text>
+              <AppIcon name="gauge" size={32} color="#FFFFFF" />
             </View>
           </View>
 
@@ -112,7 +112,7 @@ export default function AdminDashboardScreen() {
 
           <View style={styles.pollingNotice}>
             <Text style={styles.pollingText}>
-              ⚡ Live Short-Interval Polling Active (Aggregate Query Target &lt; 200ms)
+              Live short-interval polling active | Aggregate query target &lt; 200ms
             </Text>
           </View>
         </ScrollView>

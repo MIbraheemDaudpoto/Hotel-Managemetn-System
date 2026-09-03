@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import { useHotelStore } from '../../src/store/hotelStore';
 import { Booking } from '../../src/types';
-import { StatusBadge } from '../../src/components/UI';
+import { AppIcon, StatusBadge } from '../../src/components/UI';
 
 export default function FrontDeskOperationsScreen() {
   const { operations, fetchOperations, isLoadingOperations, checkInGuest, checkOutGuest } = useHotelStore();
@@ -68,7 +68,7 @@ export default function FrontDeskOperationsScreen() {
           <Text style={styles.title}>Guest Operations Flow</Text>
         </View>
         <TouchableOpacity style={styles.refreshBtn} onPress={fetchOperations}>
-          <Text style={styles.refreshText}>🔄</Text>
+          <AppIcon name="refresh" size={18} color="#0284C7" />
         </TouchableOpacity>
       </View>
 
@@ -113,7 +113,7 @@ export default function FrontDeskOperationsScreen() {
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={
             <View style={styles.emptyBox}>
-              <Text style={styles.emptyIcon}>✨</Text>
+              <AppIcon name="clipboard" size={40} color="#94A3B8" />
               <Text style={styles.emptyTitle}>No Entries Found</Text>
               <Text style={styles.emptyDesc}>No operations pending in this category for today.</Text>
             </View>
@@ -132,7 +132,7 @@ export default function FrontDeskOperationsScreen() {
                 <Text style={styles.roomBadge}>
                   Room #{item.room ? item.room.room_number : item.room_id} {item.room && item.room.room_type ? `(${item.room.room_type})` : ''}
                 </Text>
-                <Text style={styles.datesText}>📅 {item.check_in_date} → {item.check_out_date}</Text>
+                <Text style={styles.datesText}>{item.check_in_date} → {item.check_out_date}</Text>
               </View>
 
               <View style={styles.actionRow}>

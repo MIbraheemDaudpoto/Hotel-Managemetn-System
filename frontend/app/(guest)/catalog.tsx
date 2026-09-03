@@ -7,7 +7,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { useHotelStore } from '../../src/store/hotelStore';
 import { useAuthStore } from '../../src/store/authStore';
 import { Room } from '../../src/types';
-import { StatusBadge, IOSButton } from '../../src/components/UI';
+import { AppIcon, StatusBadge, IOSButton } from '../../src/components/UI';
 
 const getRoomImage = (roomType: string, customUrl?: string) => {
   if (customUrl && customUrl.startsWith('http')) return customUrl;
@@ -129,7 +129,7 @@ export default function CatalogScreen() {
           <Text style={styles.title}>Find & Book Rooms</Text>
         </View>
         <TouchableOpacity style={styles.refreshBtn} onPress={fetchRooms}>
-          <Text style={styles.refreshText}>🔄</Text>
+          <AppIcon name="refresh" size={18} color="#2563EB" />
         </TouchableOpacity>
       </View>
 
@@ -142,7 +142,7 @@ export default function CatalogScreen() {
             activeOpacity={0.7}
           >
             <Text style={styles.filterLabel}>CHECK-IN</Text>
-            <Text style={styles.dateValueText}>📅 {formatDateDisplay(checkInDate)}</Text>
+            <View style={styles.dateValue}><AppIcon name="calendar" size={16} color="#2563EB" /><Text style={styles.dateValueText}>{formatDateDisplay(checkInDate)}</Text></View>
           </TouchableOpacity>
 
           <Text style={styles.dateArrow}>→</Text>
@@ -153,7 +153,7 @@ export default function CatalogScreen() {
             activeOpacity={0.7}
           >
             <Text style={styles.filterLabel}>CHECK-OUT</Text>
-            <Text style={styles.dateValueText}>📅 {formatDateDisplay(checkOutDate)}</Text>
+            <View style={styles.dateValue}><AppIcon name="calendar" size={16} color="#2563EB" /><Text style={styles.dateValueText}>{formatDateDisplay(checkOutDate)}</Text></View>
           </TouchableOpacity>
         </View>
 
@@ -205,7 +205,7 @@ export default function CatalogScreen() {
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={
             <View style={styles.emptyBox}>
-              <Text style={styles.emptyIcon}>🏨</Text>
+              <AppIcon name="hotel" size={40} color="#94A3B8" />
               <Text style={styles.emptyTitle}>No Rooms Available</Text>
               <Text style={styles.emptyDesc}>Try adjusting your check-in or check-out dates.</Text>
             </View>
@@ -233,11 +233,11 @@ export default function CatalogScreen() {
 
                 <View style={styles.roomSpecs}>
                   <View style={styles.specItem}>
-                    <Text style={styles.specIcon}>👥</Text>
+                    <AppIcon name="users" size={16} color="#64748B" />
                     <Text style={styles.specText}>Up to {item.capacity} Guests</Text>
                   </View>
                   <View style={styles.specItem}>
-                    <Text style={styles.specIcon}>📶</Text>
+                    <AppIcon name="message" size={16} color="#64748B" />
                     <Text style={styles.specText}>Free High-Speed Wi-Fi</Text>
                   </View>
                 </View>
@@ -267,7 +267,7 @@ export default function CatalogScreen() {
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>Confirm Reservation</Text>
               <TouchableOpacity onPress={() => setModalVisible(false)}>
-                <Text style={styles.closeBtn}>✕</Text>
+                <AppIcon name="close" size={20} color="#94A3B8" />
               </TouchableOpacity>
             </View>
 
@@ -281,8 +281,8 @@ export default function CatalogScreen() {
 
                 <View style={styles.summaryBox}>
                   <Text style={styles.summaryRoom}>Room {selectedRoom.room_number} - {selectedRoom.room_type}</Text>
-                  <Text style={styles.summaryDates}>📅 {formatDateDisplay(checkInDate)} to {formatDateDisplay(checkOutDate)} ({nights} {nights === 1 ? 'Night' : 'Nights'})</Text>
-                  <Text style={styles.summaryGuest}>👤 Guest: {user?.full_name || 'Guest User'}</Text>
+                  <View style={styles.summaryLine}><AppIcon name="calendar" size={16} color="#64748B" /><Text style={styles.summaryDates}>{formatDateDisplay(checkInDate)} to {formatDateDisplay(checkOutDate)} ({nights} {nights === 1 ? 'Night' : 'Nights'})</Text></View>
+                  <View style={styles.summaryLine}><AppIcon name="user" size={16} color="#64748B" /><Text style={styles.summaryGuest}>Guest: {user?.full_name || 'Guest User'}</Text></View>
                   <View style={styles.divider} />
                   <View style={styles.priceRow}>
                     <Text style={styles.priceLabel}>Nightly Rate</Text>
@@ -299,7 +299,7 @@ export default function CatalogScreen() {
                 </View>
 
                 <View style={styles.guaranteeBox}>
-                  <Text style={styles.guaranteeText}>🔒 Guaranteed Zero-Double Booking via Transactional Availability Engine.</Text>
+                  <View style={styles.summaryLine}><AppIcon name="shield" size={16} color="#047857" /><Text style={styles.guaranteeText}>Dates protected by the transactional availability engine.</Text></View>
                 </View>
 
                 <View style={{ marginTop: 16 }}>
@@ -391,9 +391,14 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   dateValueText: {
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: '700',
     color: '#0F172A',
+  },
+  dateValue: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
   },
   dateArrow: {
     paddingHorizontal: 8,
@@ -605,6 +610,11 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#64748B',
     marginTop: 2,
+  },
+  summaryLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
   },
   divider: {
     height: 1,

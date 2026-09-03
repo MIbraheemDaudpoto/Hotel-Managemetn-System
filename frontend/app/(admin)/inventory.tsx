@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 import { useHotelStore } from '../../src/store/hotelStore';
 import { Room, RoomStatus } from '../../src/types';
-import { StatusBadge, IOSButton } from '../../src/components/UI';
+import { AppIcon, StatusBadge, IOSButton } from '../../src/components/UI';
 
 export default function InventoryScreen() {
   const { rooms, fetchRooms, isLoadingRooms, createRoom, updateRoom, deactivateRoom } = useHotelStore();
@@ -140,7 +140,7 @@ export default function InventoryScreen() {
               </View>
 
               <Text style={styles.itemSpecs}>
-                👥 Capacity: {item.capacity} guests | 💵 ${item.price_per_night.toFixed(0)}/night
+                Capacity: {item.capacity} guests | ${item.price_per_night.toFixed(0)}/night
               </Text>
               {item.description ? (
                 <Text style={styles.itemDesc} numberOfLines={1}>{item.description}</Text>
@@ -174,7 +174,7 @@ export default function InventoryScreen() {
                 {editingRoom ? `Edit Room ${editingRoom.room_number}` : 'Add New Room'}
               </Text>
               <TouchableOpacity onPress={() => setModalVisible(false)}>
-                <Text style={styles.closeBtn}>✕</Text>
+                <AppIcon name="close" size={20} color="#94A3B8" />
               </TouchableOpacity>
             </View>
 

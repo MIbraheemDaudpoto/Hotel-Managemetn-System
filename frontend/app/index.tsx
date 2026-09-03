@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { router } from 'expo-router';
 import { useAuthStore } from '../src/store/authStore';
+import { AppIcon } from '../src/components/UI';
 
 export default function IndexScreen() {
   const { user, token } = useAuthStore();
@@ -32,7 +33,7 @@ export default function IndexScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.logoBadge}>
-        <Text style={styles.logoIcon}>🏨</Text>
+        <AppIcon name="hotel" size={38} color="#38BDF8" />
       </View>
       <Text style={styles.title}>Grand Hotel</Text>
       <Text style={styles.subtitle}>iOS Operations Platform</Text>

@@ -1,5 +1,29 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { CalendarDays, ClipboardList, DoorOpen, FileText, Gauge, Headset, Hotel, LayoutGrid, LucideIcon, MessageCircle, RefreshCw, ShieldCheck, UserRound, UsersRound, Wrench, X } from 'lucide-react-native';
+
+const iconMap = {
+  calendar: CalendarDays,
+  clipboard: ClipboardList,
+  door: DoorOpen,
+  file: FileText,
+  gauge: Gauge,
+  headset: Headset,
+  hotel: Hotel,
+  grid: LayoutGrid,
+  message: MessageCircle,
+  refresh: RefreshCw,
+  shield: ShieldCheck,
+  user: UserRound,
+  users: UsersRound,
+  wrench: Wrench,
+  close: X,
+} as const;
+
+export const AppIcon = ({ name, size = 20, color = '#334155', strokeWidth = 2 }: { name: keyof typeof iconMap; size?: number; color?: string; strokeWidth?: number }) => {
+  const Icon: LucideIcon = iconMap[name];
+  return <Icon size={size} color={color} strokeWidth={strokeWidth} />;
+};
 
 export const StatusBadge = ({ status }: { status: string }) => {
   const getColors = (s: string) => {
@@ -105,7 +129,7 @@ const styles = StyleSheet.create({
     width: 5,
   },
   kpiTitle: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#64748B',
     fontWeight: '700',
     textTransform: 'uppercase',
@@ -117,7 +141,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   kpiSubtitle: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#94A3B8',
     marginTop: 2,
   },
@@ -144,12 +168,12 @@ const styles = StyleSheet.create({
   },
   btnText: {
     color: '#FFFFFF',
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '700',
   },
   btnSecondaryText: {
     color: '#1E293B',
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '700',
   },
 });

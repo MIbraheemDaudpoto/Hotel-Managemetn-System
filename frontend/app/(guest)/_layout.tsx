@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Text } from 'react-native';
+import { AppIcon } from '../../src/components/UI';
 
 export default function GuestLayout() {
   return (
@@ -26,28 +26,28 @@ export default function GuestLayout() {
         name="catalog"
         options={{
           title: 'Find Rooms',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>🏨</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="hotel" color={color} />,
         }}
       />
       <Tabs.Screen
         name="bookings"
         options={{
           title: 'My Stays',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>📅</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="calendar" color={color} />,
         }}
       />
       <Tabs.Screen
         name="concierge"
         options={{
           title: 'AI Concierge',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>💬</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="message" color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>👤</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="user" color={color} />,
         }}
       />
     </Tabs>

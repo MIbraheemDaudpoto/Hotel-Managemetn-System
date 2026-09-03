@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert, KeyboardAvoidingView, Platform } from 'react-native';
 import { router } from 'expo-router';
 import { useAuthStore } from '../../src/store/authStore';
-import { IOSButton } from '../../src/components/UI';
+import { AppIcon, IOSButton } from '../../src/components/UI';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('guest@hotel.com');
@@ -33,7 +33,7 @@ export default function LoginScreen() {
     >
       <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
         <View style={styles.header}>
-          <Text style={styles.hotelIcon}>🏨</Text>
+          <View style={styles.hotelIcon}><AppIcon name="hotel" size={38} color="#38BDF8" /></View>
           <Text style={styles.title}>Grand Hotel</Text>
           <Text style={styles.subtitle}>Sign in to access your operations dashboard</Text>
         </View>

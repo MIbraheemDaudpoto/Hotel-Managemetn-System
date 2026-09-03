@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Platform, Alert } from 'react-native';
 import { router } from 'expo-router';
 import { useAuthStore } from '../../src/store/authStore';
-import { IOSButton } from '../../src/components/UI';
+import { AppIcon, IOSButton } from '../../src/components/UI';
 
 export default function FrontDeskProfileScreen() {
   const { user, logout } = useAuthStore();
@@ -30,7 +30,7 @@ export default function FrontDeskProfileScreen() {
       <View style={styles.content}>
         <View style={styles.profileCard}>
           <View style={styles.avatar}>
-            <Text style={{ fontSize: 32 }}>🛎️</Text>
+            <AppIcon name="headset" size={32} color="#0284C7" />
           </View>
           <Text style={styles.name}>{user ? user.full_name : 'Front Desk Staff'}</Text>
           <Text style={styles.email}>{user ? user.email : ''}</Text>

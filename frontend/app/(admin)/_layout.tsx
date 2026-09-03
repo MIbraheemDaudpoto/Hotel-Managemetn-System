@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Text } from 'react-native';
+import { AppIcon } from '../../src/components/UI';
 
 export default function AdminLayout() {
   return (
@@ -26,35 +26,35 @@ export default function AdminLayout() {
         name="dashboard"
         options={{
           title: 'KPIs',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>📊</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="gauge" color={color} />,
         }}
       />
       <Tabs.Screen
         name="inventory"
         options={{
           title: 'Inventory',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>🚪</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="door" color={color} />,
         }}
       />
       <Tabs.Screen
         name="staff"
         options={{
           title: 'Staff',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>👥</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="users" color={color} />,
         }}
       />
       <Tabs.Screen
         name="reports"
         options={{
           title: 'Audit & Logs',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>📜</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="file" color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Admin',
-          tabBarIcon: () => <Text style={{ fontSize: 20 }}>👤</Text>,
+          tabBarIcon: ({ color }) => <AppIcon name="user" color={color} />,
         }}
       />
     </Tabs>

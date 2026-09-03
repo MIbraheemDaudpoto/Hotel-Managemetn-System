@@ -4,7 +4,7 @@ import {
   ActivityIndicator, SafeAreaView, Platform, Modal, Alert, ScrollView
 } from 'react-native';
 import { useHotelStore } from '../../src/store/hotelStore';
-import { StatusBadge, IOSButton } from '../../src/components/UI';
+import { AppIcon, StatusBadge, IOSButton } from '../../src/components/UI';
 import { HotelPolicyItem } from '../../src/types';
 
 export default function ReportsAndAuditScreen() {
@@ -72,7 +72,7 @@ export default function ReportsAndAuditScreen() {
           <Text style={styles.title}>Reports, Audits & Settings</Text>
         </View>
         <TouchableOpacity style={styles.refreshBtn} onPress={loadData}>
-          <Text style={styles.refreshText}>🔄</Text>
+          <AppIcon name="refresh" size={18} color="#7C3AED" />
         </TouchableOpacity>
       </View>
 
@@ -170,7 +170,7 @@ export default function ReportsAndAuditScreen() {
                 <Text style={styles.detailText}>
                   Room #{item.room ? item.room.room_number : item.room_id} {item.room && item.room.room_type ? `(${item.room.room_type})` : ''}
                 </Text>
-                <Text style={styles.detailText}>📅 {item.check_in_date} → {item.check_out_date}</Text>
+                <Text style={styles.detailText}>{item.check_in_date} → {item.check_out_date}</Text>
                 <Text style={styles.priceText}>${item.total_price.toFixed(2)}</Text>
               </View>
             </View>
@@ -225,7 +225,7 @@ export default function ReportsAndAuditScreen() {
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>Edit Hotel Policy ({selectedPolicy?.key})</Text>
               <TouchableOpacity onPress={() => setEditPolicyModal(false)}>
-                <Text style={styles.closeBtn}>✕</Text>
+                <AppIcon name="close" size={20} color="#94A3B8" />
               </TouchableOpacity>
             </View>
 

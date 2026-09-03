@@ -4,7 +4,7 @@ import {
   ActivityIndicator, Alert, SafeAreaView, Platform, Modal, ScrollView
 } from 'react-native';
 import { useHotelStore } from '../../src/store/hotelStore';
-import { StatusBadge, IOSButton } from '../../src/components/UI';
+import { AppIcon, StatusBadge, IOSButton } from '../../src/components/UI';
 import { Booking, Invoice } from '../../src/types';
 
 export default function BookingsScreen() {
@@ -56,7 +56,7 @@ export default function BookingsScreen() {
       <View style={styles.header}>
         <Text style={styles.title}>My Stays & Bookings</Text>
         <TouchableOpacity style={styles.refreshBtn} onPress={fetchMyBookings}>
-          <Text style={styles.refreshText}>🔄</Text>
+          <AppIcon name="refresh" size={18} color="#2563EB" />
         </TouchableOpacity>
       </View>
 
@@ -72,7 +72,7 @@ export default function BookingsScreen() {
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={
             <View style={styles.emptyBox}>
-              <Text style={styles.emptyIcon}>📅</Text>
+              <AppIcon name="calendar" size={40} color="#94A3B8" />
               <Text style={styles.emptyTitle}>No Reservations Yet</Text>
               <Text style={styles.emptyDesc}>Book a room from the Find Rooms tab.</Text>
             </View>
@@ -92,15 +92,15 @@ export default function BookingsScreen() {
               <View style={styles.detailsBox}>
                 <View style={styles.detailRow}>
                   <Text style={styles.detailLabel}>Check-In Date</Text>
-                  <Text style={styles.detailVal}>📅 {item.check_in_date}</Text>
+                  <Text style={styles.detailVal}>Check-in: {item.check_in_date}</Text>
                 </View>
                 <View style={styles.detailRow}>
                   <Text style={styles.detailLabel}>Check-Out Date</Text>
-                  <Text style={styles.detailVal}>📅 {item.check_out_date}</Text>
+                  <Text style={styles.detailVal}>Check-out: {item.check_out_date}</Text>
                 </View>
                 <View style={styles.detailRow}>
                   <Text style={styles.detailLabel}>Guest Name</Text>
-                  <Text style={styles.detailVal}>👤 {item.guest_name}</Text>
+                  <Text style={styles.detailVal}>Guest: {item.guest_name}</Text>
                 </View>
                 <View style={[styles.detailRow, { marginTop: 4 }]}>
                   <Text style={styles.totalLabel}>Total Price</Text>
@@ -136,7 +136,7 @@ export default function BookingsScreen() {
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>Booking Invoice</Text>
               <TouchableOpacity onPress={() => setInvoiceModalVisible(false)}>
-                <Text style={styles.closeBtn}>✕</Text>
+                <AppIcon name="close" size={20} color="#94A3B8" />
               </TouchableOpacity>
             </View>
 

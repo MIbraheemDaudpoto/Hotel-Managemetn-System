@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Platform, Alert } from 'react-native';
 import { router } from 'expo-router';
 import { useAuthStore } from '../../src/store/authStore';
-import { IOSButton } from '../../src/components/UI';
+import { AppIcon, IOSButton } from '../../src/components/UI';
 
 export default function ProfileScreen() {
   const { user, logout } = useAuthStore();
@@ -30,7 +30,7 @@ export default function ProfileScreen() {
       <View style={styles.content}>
         <View style={styles.profileCard}>
           <View style={styles.avatar}>
-            <Text style={{ fontSize: 32 }}>👤</Text>
+            <AppIcon name="user" size={32} color="#2563EB" />
           </View>
           <Text style={styles.name}>{user ? user.full_name : 'Guest User'}</Text>
           <Text style={styles.email}>{user ? user.email : ''}</Text>

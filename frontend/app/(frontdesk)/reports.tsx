@@ -4,7 +4,7 @@ import {
   ActivityIndicator, SafeAreaView, Platform
 } from 'react-native';
 import { useHotelStore } from '../../src/store/hotelStore';
-import { StatusBadge } from '../../src/components/UI';
+import { AppIcon, StatusBadge } from '../../src/components/UI';
 
 export default function FrontDeskReportsScreen() {
   const { allBookings, fetchAllBookings, auditLogs, fetchAuditLogs } = useHotelStore();
@@ -29,7 +29,7 @@ export default function FrontDeskReportsScreen() {
           <Text style={styles.title}>Operational Logs & Bookings</Text>
         </View>
         <TouchableOpacity style={styles.refreshBtn} onPress={loadData}>
-          <Text style={styles.refreshText}>🔄</Text>
+          <AppIcon name="refresh" size={18} color="#0284C7" />
         </TouchableOpacity>
       </View>
 
@@ -77,7 +77,7 @@ export default function FrontDeskReportsScreen() {
                 <Text style={styles.detailText}>
                   Room #{item.room ? item.room.room_number : item.room_id} {item.room && item.room.room_type ? `(${item.room.room_type})` : ''}
                 </Text>
-                <Text style={styles.detailText}>📅 {item.check_in_date} → {item.check_out_date}</Text>
+                <Text style={styles.detailText}>{item.check_in_date} → {item.check_out_date}</Text>
                 <Text style={styles.priceText}>${item.total_price.toFixed(2)}</Text>
               </View>
             </View>

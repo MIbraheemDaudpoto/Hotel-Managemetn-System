@@ -4,6 +4,7 @@ import {
   KeyboardAvoidingView, Platform, SafeAreaView, ActivityIndicator, Keyboard, TouchableWithoutFeedback
 } from 'react-native';
 import { useHotelStore } from '../../src/store/hotelStore';
+import { AppIcon } from '../../src/components/UI';
 
 export default function ConciergeScreen() {
   const { messages, sendConciergeMessage, isChatLoading, clearChat } = useHotelStore();
@@ -44,7 +45,7 @@ export default function ConciergeScreen() {
       <View style={styles.header}>
         <View style={styles.headerInfo}>
           <View style={styles.botAvatar}>
-            <Text style={{ fontSize: 20 }}>🤖</Text>
+            <AppIcon name="headset" size={20} color="#2563EB" />
           </View>
           <View>
             <Text style={styles.headerTitle}>AI Hotel Concierge</Text>
@@ -76,7 +77,7 @@ export default function ConciergeScreen() {
                   <View style={[styles.messageRow, isUser ? styles.userRow : styles.botRow]}>
                     {!isUser ? (
                       <View style={styles.miniAvatar}>
-                        <Text style={{ fontSize: 14 }}>🤖</Text>
+                        <AppIcon name="headset" size={18} color="#2563EB" />
                       </View>
                     ) : null}
                     <View style={[styles.bubble, isUser ? styles.userBubble : styles.botBubble]}>
@@ -95,7 +96,7 @@ export default function ConciergeScreen() {
                               style={styles.suggestionChip}
                               onPress={() => handleSuggestedAction(act)}
                             >
-                              <Text style={styles.suggestionChipText}>✨ {act}</Text>
+                              <View style={styles.suggestionChipContent}><AppIcon name="message" size={14} color="#2563EB" /><Text style={styles.suggestionChipText}>{act}</Text></View>
                             </TouchableOpacity>
                           ))}
                         </View>
@@ -279,6 +280,11 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#1D4ED8',
     fontWeight: '600',
+  },
+  suggestionChipContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
   },
   typingIndicator: {
     flexDirection: 'row',

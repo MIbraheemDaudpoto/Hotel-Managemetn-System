@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert, KeyboardAvoidingView, Platform } from 'react-native';
 import { router } from 'expo-router';
 import { useAuthStore } from '../../src/store/authStore';
-import { IOSButton } from '../../src/components/UI';
+import { AppIcon, IOSButton } from '../../src/components/UI';
 
 export default function RegisterScreen() {
   const [fullName, setFullName] = useState('');
@@ -32,7 +32,7 @@ export default function RegisterScreen() {
     >
       <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
         <View style={styles.header}>
-          <Text style={styles.hotelIcon}>✨</Text>
+          <View style={styles.hotelIcon}><AppIcon name="user" size={36} color="#38BDF8" /></View>
           <Text style={styles.title}>Guest Registration</Text>
           <Text style={styles.subtitle}>Create your profile to book rooms & access 24/7 AI Concierge</Text>
         </View>
