@@ -1,0 +1,11 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "npx tsc": true,
+        "npm install": true,
+        "/^python -c \"import reportlab; print\\(reportlab\\.Version\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "git remote": true
+    }
+}

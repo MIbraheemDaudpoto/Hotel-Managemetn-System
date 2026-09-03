@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "Grand Hotel iOS",
+    "slug": "hotel-management-ios",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "hotelmng",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.hotelmng.app",
+      "infoPlist": {
+        "UIUserInterfaceStyle": "Light",
+        "UIStatusBarStyle": "UIStatusBarStyleDarkContent",
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      }
+    },
+    "android": {
+      "package": "com.hotelmng.app"
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font"
+    ]
+  }
+}
