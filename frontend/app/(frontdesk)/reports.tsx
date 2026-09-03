@@ -21,6 +21,7 @@ export default function FrontDeskReportsScreen() {
     loadData();
   }, []);
 
+  
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -129,6 +130,7 @@ const styles = StyleSheet.create({
     color: '#0284C7',
     letterSpacing: 1.5,
   },
+  
   title: {
     fontSize: 22,
     fontWeight: '800',
