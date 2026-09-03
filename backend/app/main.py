@@ -6,6 +6,7 @@ from app.core.database import engine, Base
 from app.seed import seed_database
 from app.routers import auth, rooms, bookings, frontdesk, admin, concierge, audit, reports
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     Base.metadata.create_all(bind=engine)
